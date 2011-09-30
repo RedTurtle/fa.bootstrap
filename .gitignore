@@ -4,3 +4,4 @@ develop-eggs
 eggs
 include
 lib
+dist
