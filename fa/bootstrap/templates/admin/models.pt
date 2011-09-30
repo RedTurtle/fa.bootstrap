@@ -1,0 +1,11 @@
+<html metal:use-macro="main.macros['master']">
+  <body>
+    <div metal:fill-slot="main">
+      <div tal:repeat="item models.items()">
+        <a tal:attributes="href item[1]"
+           class="fa_model ui-widget-header ui-corner-all"
+           tal:content="item[0]"></a>
+      </div>
+    </div>
+  </body>
+</html>

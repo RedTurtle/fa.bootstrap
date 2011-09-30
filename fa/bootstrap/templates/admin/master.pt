@@ -1,0 +1,30 @@
+<metal:html metal:define-macro="master" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+  <metal:main_template metal:use-macro="main_template.macros['master']">
+    <head>
+      <script type="text/javascript" metal:define-slot="javascript"></script>
+    </head>
+    <body metal:fill-slot="body">
+        <div class="page-header" tal:on-error="'Error'">
+            <h1 tal:condition="request.model_name">
+                 <span tal:condition="request.model_id and hasattr(request.model_class, '__unicode__')"
+                       tal:replace="unicode(request.model_instance)"/>
+                 <span tal:condition="request.model_id and not hasattr(request.model_class, '__unicode__')"
+                       tal:replace="request.model_id"/>
+                 <span tal:condition="not request.model_id"
+                       tal:replace="unicode(request.model_class.label)"/>
+            </h1>
+        </div>
+        <div class="row">
+            <div class="span18">
+                <metal:main define-slot="main"></metal:main>
+                <a style="display:none" class="root_url" tal:attributes="href request.fa_url()"></a>
+            </div>
+        </div>
+    </body>
+    <div metal:fill-slot="sidebar">
+      <metal:main define-slot="sidebar">
+        <h5>To be filled in</h5>
+      </metal:main>
+    </div>
+  </metal:main_template>
+</metal:html>

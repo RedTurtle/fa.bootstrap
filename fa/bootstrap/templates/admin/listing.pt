@@ -1,0 +1,22 @@
+<html metal:use-macro="main.macros['master']">
+  <body>
+      <metal:main fill-slot="main">
+        <span tal:replace="structure fs.render(request=request)"/>
+        <div class="pagination">
+            <ul>
+                <span tal:replace="structure pager" />
+            </ul>
+        </div>
+        <p class="fa_field" tal:content="structure actions.buttons(request)"></p>
+    </metal:main>
+    <metal:main fill-slot="sidebar">
+        <h5>Available models</h5>
+        <ul tal:repeat="item view.models(json=True)">
+            <li>
+                <a tal:attributes="href item"
+                   tal:content="item"></a>
+            </li>
+        </ul>
+    </metal:main>
+  </body>
+</html>

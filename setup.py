@@ -27,9 +27,13 @@ setup(name='fa.bootstrap',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'js.bootstrap',
+          'pyramid_formalchemy',
+          'fa.jquery',
+          'js.jquery_tablesorter',
+          'js.bootstrap>=1.3.2',
           ],
       entry_points="""
-      # -*- Entry points: -*-
+      [fanstatic.libraries]
+      fa_bootstrap = fa.bootstrap.fanstatic_resources:fa_bootstrap_library
       """,
       )

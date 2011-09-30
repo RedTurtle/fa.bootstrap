@@ -1,17 +1,7 @@
 CHANGES
 *******
 
-1.3.2 (??-09-2011)
-==================
+0.1 (Unreleased)
+================
 
-- update bootstrap.css to proper 1.3.0 version [amleczko]
-
-1.3.1 (29-09-2011)
-==================
-
-- fix javascript dependency problems [amleczko]
-
-1.3.0 (28-09-2011)
-==================
-
-- Initial release - using bootstrap 1.3.0 [amleczko]
+- Initial release - using js.bootstrap 1.3.2 [amleczko]
