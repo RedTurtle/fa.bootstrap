@@ -15,7 +15,10 @@ setup(name='fa.bootstrap',
       version=version,
       description="pyramid_formalchemy twitter bootstrap integration",
       long_description=long_description,
-      classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
+      classifiers=[
+        "Programming Language :: Python",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+        ],
       keywords='pyramid pyramid_formalchemy twitter bootstrap redturtle',
       author='RedTurtle Developers',
       author_email='svilplone@redturtle.it',
