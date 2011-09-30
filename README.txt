@@ -1,17 +1,13 @@
-js.bootstrap
+fa.bootstrap
 ************
 
 Introduction
 ============
 
-This library packages `twitter bootstrap`_ for `fanstatic`_. It is aware of different modes (normal, minified).
+This library packages `twitter bootstrap`_ for `pyramid_formalchemy`_. 
 
-.. _`fanstatic`: http://fanstatic.org
+.. _`pyramid_formalchemy`: http://docs.formalchemy.org/pyramid_formalchemy/
 .. _`twitter bootstrap`: http://twitter.github.com/bootstrap/
-
-This requires integration between your web framework and ``fanstatic``,
-and making sure that the original resources (shipped in the ``resources``
-directory in ``js.bootstrap``) are published to some URL.
 
 
 Contact
