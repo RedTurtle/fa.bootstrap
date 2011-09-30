@@ -1,8 +1,8 @@
 fa.bootstrap
-************
+============
 
 Introduction
-============
+------------
 
 This library packages `twitter bootstrap`_ for `pyramid_formalchemy`_. 
 
@@ -11,7 +11,7 @@ This library packages `twitter bootstrap`_ for `pyramid_formalchemy`_.
 
 
 Contact
-=======
+-------
 
 .. image:: http://www.slowfoodbologna.it/redturtle_logo.png
 
