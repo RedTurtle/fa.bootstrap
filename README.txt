@@ -11,7 +11,7 @@ This library packages `twitter bootstrap`_ for `pyramid_formalchemy`_ using `js.
 .. _`js.bootstrap`: https://github.com/RedTurtle/js.bootstrap
 
 
-It's right now in early development stage so you should now what you are doing. 
+It's right now in early development stage so you should know what you are doing. 
 However most of the `pyramid_formalchemy`_ views/functionalites should be properly wrap 
 with `js.bootstrap`_.
 
