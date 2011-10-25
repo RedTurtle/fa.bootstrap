@@ -1,6 +1,7 @@
 <html metal:use-macro="main.macros['master']">
   <body>
     <div metal:fill-slot="main">
+      <tal:tabs replace="structure actions.tabs(request)" tal:condition="actions.has_key('tabs')"/>
       <table tal:content="structure fs.render()" />
       <div class="fa_controls" tal:content="structure actions.buttons(request)">
       </div>

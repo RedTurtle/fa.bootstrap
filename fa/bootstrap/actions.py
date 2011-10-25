@@ -21,6 +21,42 @@ class TabAction(actions.Action):
         return self.id == request.action
 
 
+class TabsActions(Actions, actions.Action):
+    body='''<ul class="tabs">${items}</ul>'''
+
+    def __init__(self, *args, **kwargs):
+        Actions.__init__(self, *args, **kwargs)
+        actions.Action.__init__(self, 'tabs', **kwargs)
+
+    def render(self, request, **kwargs):
+        items = Actions.render(self, request, **kwargs)
+        self.rcontext.update(items=items)
+        return actions.Action.render(self, request)
+
+
+class PillsActions(TabsActions):
+    body='''<ul class="pills">${items}</ul>'''
+
+
+class DropdownActions(Actions, actions.Action):
+    """New action type - comaptible with boostrap style."""
+    body = u'''<li class="dropdown" data-dropdown="dropdown">
+                  <a href="#" class="dropdown-toggle">${content}</a>
+                    <ul class="dropdown-menu">
+                        ${items}
+                    </ul>
+               </li>'''
+
+    def __init__(self, *args, **kwargs):
+        Actions.__init__(self, *args, **kwargs)
+        actions.Action.__init__(self, **kwargs)
+
+    def render(self, request, **kwargs):
+        items = Actions.render(self, request, **kwargs)
+        self.rcontext.update(items=items)
+        return actions.Action.render(self, request)
+
+
 new = UIButton(
         id='new',
         content=_('New ${model_label}'),

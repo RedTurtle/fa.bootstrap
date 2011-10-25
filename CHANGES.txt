@@ -1,6 +1,12 @@
 CHANGES
 *******
 
+0.2 (24-10-2011)
+================
+
+- add manifest.ini [gawel]
+- add new action - dropdown [amleczko]
+
 0.1 (30-09-2011)
 ================
 
