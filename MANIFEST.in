@@ -1,0 +1,12 @@
+include CHANGES.txt
+recursive-include fa *.pt.py
+recursive-include fa *.pt
+recursive-include fa *.css
+recursive-include fa *.js
+recursive-include fa *.gif
+recursive-include fa *.png
+recursive-include fa *.jpg
+recursive-include fa *.py_tmpl
+recursive-include fa *.txt
+recursive-include fa *.mo
+recursive-include fa *.po
