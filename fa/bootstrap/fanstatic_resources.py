@@ -5,5 +5,6 @@ from js.jquery_tablesorter import tablesorter
 
 fa_bootstrap_library = Library('fa_bootstrap', 'static')
 listing = Resource(fa_bootstrap_library, 'js/listing.js', depends=[jquery])
+alerts = Resource(fa_bootstrap_library, 'js/alerts.js', depends=[jquery])
 
-bootstrap = Group([listing, js_bootstrap, tablesorter])
+bootstrap = Group([listing, alerts, js_bootstrap, tablesorter])

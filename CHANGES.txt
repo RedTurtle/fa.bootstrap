@@ -6,6 +6,7 @@ CHANGES
 
 - add manifest.ini [gawel]
 - add new action - dropdown [amleczko]
+- add auto alert hide js [amleczko]
 
 0.1 (30-09-2011)
 ================
