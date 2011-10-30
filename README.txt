@@ -40,7 +40,7 @@ fa.bootstrap in your python environment, either with pip::
 
   $ pip install fa.bootstrap
 
-  or with easy_install::
+or with easy_install::
 
     $ easy_install fa.bootstrap
 
@@ -50,7 +50,9 @@ Then you should be able to run::
 
 and start your application by::
 
-  $ cd myapp; paster serve development.ini
+  $ cd myapp
+  $ python setup.py develop
+  $ paster serve development.ini
 
 
 Contact
