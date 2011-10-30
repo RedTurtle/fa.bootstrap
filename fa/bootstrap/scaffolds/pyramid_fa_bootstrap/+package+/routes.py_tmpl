@@ -1,0 +1,13 @@
+from {{package}} import models, forms
+
+def includeme(config):
+
+    try:
+        # Example for pyramid_routesalchemy and akhet
+        from {{package}}.models import MyModel
+        config.formalchemy_model("/my_model", package='{{package}}',
+                                 model='{{package}}.models.MyModel',
+                                 session_factory=models.DBSession,
+                                 view='{{package}}.forms.ModelView')
+    except ImportError:
+        pass
