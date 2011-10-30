@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.2'
+version = '0.2.1'
 
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
@@ -30,7 +30,7 @@ setup(name='fa.bootstrap',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'pyramid_formalchemy',
+          'pyramid_formalchemy>=0.4.2dev',
           'fa.jquery',
           'js.jquery_tablesorter',
           'js.bootstrap>=1.3.2',
@@ -38,5 +38,7 @@ setup(name='fa.bootstrap',
       entry_points="""
       [fanstatic.libraries]
       fa_bootstrap = fa.bootstrap.fanstatic_resources:fa_bootstrap_library
-      """,
+      [paste.paster_create_template]
+      pyramid_fa_bootstrap = fa.bootstrap.paster:PyramidFormAlchemyBootstrapTemplate
+      """
       )
