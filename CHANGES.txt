@@ -1,6 +1,11 @@
 CHANGES
 *******
 
+0.2.2 (03-11-2011)
+==================
+
+- pin WebOB to < 1.2; this fix problem with formalchemy [amleczko]
+
 0.2.1 (30-10-2011)
 ==================
 

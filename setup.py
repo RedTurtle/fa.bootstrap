@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.2.1'
+version = '0.2.2'
 
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
@@ -34,6 +34,7 @@ setup(name='fa.bootstrap',
           'fa.jquery',
           'js.jquery_tablesorter',
           'js.bootstrap>=1.3.2',
+          'WebOB<1.2' #1.2 breakes formalchemy
           ],
       entry_points="""
       [fanstatic.libraries]
