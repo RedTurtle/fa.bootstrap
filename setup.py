@@ -34,7 +34,7 @@ setup(name='fa.bootstrap',
           'fa.jquery',
           'js.jquery_tablesorter',
           'js.bootstrap>=1.3.2',
-          'WebOB<1.2' #1.2 breakes formalchemy
+          'WebOB<1.2a' #1.2 breakes formalchemy
           ],
       entry_points="""
       [fanstatic.libraries]
