@@ -1,6 +1,12 @@
 CHANGES
 *******
 
+0.2.3 (Unreleased)
+==================
+
+- fix styles to match bootstrap 1.4 [amleczko]
+- add bootstrap autocomplete renderer to match twitter css [amleczko]
+
 0.2.2 (03-11-2011)
 ==================
 

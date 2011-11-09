@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.2.2'
+version = '0.2.3'
 
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
@@ -33,7 +33,7 @@ setup(name='fa.bootstrap',
           'pyramid_formalchemy>=0.4.2dev',
           'fa.jquery',
           'js.jquery_tablesorter',
-          'js.bootstrap>=1.3.2',
+          'js.bootstrap>=1.4',
           'WebOB==1.1.1' #1.2 breakes formalchemy
           ],
       entry_points="""

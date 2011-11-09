@@ -11,7 +11,7 @@
             tal:replace="structure field.render()"></div>
          <div class="input-prepend"
              tal:condition="isinstance(field.type, fatypes.Boolean)">
-             <label class="add-on"> 
+             <label class="add-on active"> 
                  <div tal:replace="structure field.render()" />
             </label>
             <input class="mini" disabled="" id=""  name="" size="16"  type="text" value="True">
