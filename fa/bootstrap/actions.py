@@ -18,7 +18,15 @@ class TabAction(actions.Action):
         for _id in self.rcontext.get('children', ()):
             if _id in request.matchdict.get('traverse'):
                 return True
-        return self.id == request.action
+        return request.path_url.strip('/') == eval(self.attrs['href']).strip('/')
+
+
+class BreadcrumbAction(TabAction):
+    body = u'''<li tal:attributes="class action.isActive(request) and \'active\' or \'\'">
+                    <a tal:condition="not action.isActive(request)" tal:attributes="%(attributes)s">${content}</a>
+                    <span tal:condition="action.isActive(request)" tal:omit-tag="">${content}</span>
+                    <span tal:condition="not action.isActive(request)" class="divider">/</span>
+               </li>'''
 
 
 class TabsActions(Actions, actions.Action):

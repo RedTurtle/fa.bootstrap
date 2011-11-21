@@ -1,5 +1,11 @@
 <tal:define tal:define="focus_rendered False">
 
+<div class="alert-message block-message error" tal:condition="fieldset.errors.get(None, False)">
+  <p tal:repeat="error fieldset.errors.get(None)">
+    <span tal:content="error" />
+  </p>
+</div>
+
 <tal:field tal:repeat="field fieldset.render_fields.itervalues()">
   <div tal:attributes="class field.errors and 'clearfix error' or 'clearfix'">
     <tal:req tal:condition="field.requires_label">
@@ -26,9 +32,6 @@
          </span>
     </div>
 
-<div class="fa_field" tal:condition="fieldset.errors.get(None, False)">
-  <div class="ui-state-error ui-corner-all" tal:repeat="error fieldset.errors.get(None)" tal:content="error" />
-  </div>
 
   </div>
   <script tal:condition="not field.is_readonly() and (fieldset.focus == field or fieldset.focus is True) and not focus_rendered">

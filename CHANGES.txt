@@ -6,6 +6,8 @@ CHANGES
 
 - fix styles to match bootstrap 1.4 [amleczko]
 - add bootstrap autocomplete renderer to match twitter css [amleczko]
+- fix action isActive [amleczko]
+- fix global_validator error rendering [amleczko]
 
 0.2.2 (03-11-2011)
 ==================
