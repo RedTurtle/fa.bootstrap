@@ -1,7 +1,7 @@
 CHANGES
 *******
 
-0.2.3 (Unreleased)
+0.2.3 (2012-01-04)
 ==================
 
 - fix styles to match bootstrap 1.4 [amleczko]
