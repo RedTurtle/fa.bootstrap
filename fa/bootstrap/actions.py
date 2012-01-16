@@ -2,6 +2,7 @@ from pyramid_formalchemy.i18n import _
 from pyramid_formalchemy import actions
 from pyramid_formalchemy.actions import Actions
 from pyramid_formalchemy.actions import action; action
+from webhelpers.html import literal
 
 
 class UIButton(actions.UIButton):
@@ -38,7 +39,7 @@ class TabsActions(Actions, actions.Action):
 
     def render(self, request, **kwargs):
         items = Actions.render(self, request, **kwargs)
-        self.rcontext.update(items=items)
+        self.rcontext.update(items=literal(items))
         return actions.Action.render(self, request)
 
 
@@ -61,7 +62,7 @@ class DropdownActions(Actions, actions.Action):
 
     def render(self, request, **kwargs):
         items = Actions.render(self, request, **kwargs)
-        self.rcontext.update(items=items)
+        self.rcontext.update(items=literal(items))
         return actions.Action.render(self, request)
 
 
