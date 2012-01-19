@@ -1,11 +1,10 @@
 CHANGES
 *******
 
-0.2.5 (unreleased)
+0.3a (unreleased)
 ==================
 
-- Nothing changed yet.
-
+- Integration with js.bootstrap 2.0a [amleczko]
 
 0.2.4 (2012-01-17)
 ==================
