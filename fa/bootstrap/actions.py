@@ -50,7 +50,7 @@ class PillsActions(TabsActions):
 class DropdownActions(Actions, actions.Action):
     """New action type - comaptible with boostrap style."""
     body = u'''<li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">${content}</a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">${content}<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         ${items}
                     </ul>
