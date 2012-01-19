@@ -15,7 +15,7 @@
             </h1>
         </div>
         <div class="row">
-            <div class="span18">
+            <div class="span12">
                 <metal:main define-slot="main"></metal:main>
                 <a style="display:none" class="root_url" tal:attributes="href request.fa_url()"></a>
             </div>

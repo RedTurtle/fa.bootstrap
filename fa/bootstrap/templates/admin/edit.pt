@@ -1,12 +1,14 @@
 <html metal:use-macro="main.macros['master']">
   <body>
     <div metal:fill-slot="main">
-      <form action="" method="POST" enctype="multipart/form-data">
-        <div tal:content="structure fs.render()" />
+      <form action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
+        <legend>Edit item</legend>
+        <div tal:replace="structure fs.render()" />
         <input type="hidden" name="_method" value="PUT" />
         <input type="hidden" id="next" name="next" value="" />
-        <div class="fa_controls" tal:content="structure actions.buttons(request)">
-        </div>
+        <fieldset class="form-actions">
+            <div class="fa_controls" tal:content="structure actions.buttons(request)" />
+        </fieldset>
       </form>
     </div>
   </body>

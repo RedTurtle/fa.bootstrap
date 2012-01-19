@@ -31,7 +31,7 @@ class BreadcrumbAction(TabAction):
 
 
 class TabsActions(Actions, actions.Action):
-    body='''<ul class="tabs">${items}</ul>'''
+    body='''<ul class="nav tabs">${items}</ul>'''
 
     def __init__(self, *args, **kwargs):
         Actions.__init__(self, *args, **kwargs)
@@ -44,13 +44,13 @@ class TabsActions(Actions, actions.Action):
 
 
 class PillsActions(TabsActions):
-    body='''<ul class="pills">${items}</ul>'''
+    body='''<ul class="nav pills">${items}</ul>'''
 
 
 class DropdownActions(Actions, actions.Action):
     """New action type - comaptible with boostrap style."""
-    body = u'''<li class="dropdown" data-dropdown="dropdown">
-                  <a href="#" class="dropdown-toggle">${content}</a>
+    body = u'''<li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">${content}</a>
                     <ul class="dropdown-menu">
                         ${items}
                     </ul>

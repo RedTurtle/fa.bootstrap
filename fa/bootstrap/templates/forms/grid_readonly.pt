@@ -1,9 +1,9 @@
 <script>
   $(function() {
-        $("table.zebra-striped").tablesorter();
+        $("table.table-bordered").tablesorter();
   });
 </script>
-<table class="zebra-striped">
+<table class="table-bordered">
   <thead>
     <tr>
       <th tal:repeat="field collection.render_fields.itervalues()"
