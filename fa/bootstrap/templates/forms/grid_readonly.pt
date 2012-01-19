@@ -3,7 +3,7 @@
         $("table.table-bordered").tablesorter();
   });
 </script>
-<table class="table-bordered">
+<table class="table table-bordered">
   <thead>
     <tr>
       <th tal:repeat="field collection.render_fields.itervalues()"
