@@ -31,7 +31,7 @@ class BreadcrumbAction(TabAction):
 
 
 class TabsActions(Actions, actions.Action):
-    body='''<ul class="nav tabs">${items}</ul>'''
+    body='''<ul class="nav nav-tabs">${items}</ul>'''
 
     def __init__(self, *args, **kwargs):
         Actions.__init__(self, *args, **kwargs)
@@ -44,7 +44,7 @@ class TabsActions(Actions, actions.Action):
 
 
 class PillsActions(TabsActions):
-    body='''<ul class="nav pills">${items}</ul>'''
+    body='''<ul class="nav nav-pills">${items}</ul>'''
 
 
 class DropdownActions(Actions, actions.Action):
@@ -70,7 +70,7 @@ new = UIButton(
         id='new',
         content=_('New ${model_label}'),
         permission='new',
-        _class='btn primary',
+        _class='btn btn-primary',
         attrs=dict(href="request.fa_url(request.model_name, 'new')"),
         )
 
@@ -79,7 +79,7 @@ save = UIButton(
         id='save',
         content=_('Save'),
         permission='edit',
-        _class='btn success',
+        _class='btn btn-success',
         attrs=dict(onclick="jQuery(this).parents('form').submit();"),
         )
 
@@ -87,7 +87,7 @@ save_and_add_another = UIButton(
         id='save_and_add_another',
         content=_('Save and add another'),
         permission='edit',
-        _class='btn success',
+        _class='btn btn-success',
         attrs=dict(onclick=("var f = jQuery(this).parents('form');"
                             "jQuery('#next', f).val(window.location.href);"
                             "f.submit();")),
@@ -97,7 +97,7 @@ edit = UIButton(
         id='edit',
         content=_('Edit'),
         permission='edit',
-        _class='btn info',
+        _class='btn btn-info',
         attrs=dict(href="request.fa_url(request.model_name, request.model_id, 'edit')"),
         )
 
@@ -112,7 +112,7 @@ delete = UIButton(
         id='delete',
         content=_('Delete'),
         permission='delete',
-        _class='btn danger',
+        _class='btn btn-danger',
         attrs=dict(onclick=("var f = jQuery(this).parents('form');"
                       "f.attr('action', window.location.href.replace('/edit', '/delete'));"
                       "f.submit();")),

@@ -14,7 +14,7 @@
                        tal:replace="unicode(request.model_class.label)"/>
             </h1>
         </div>
-        <div class="row">
+        <div class="row-fluid">
             <div class="span12">
                 <metal:main define-slot="main"></metal:main>
                 <a style="display:none" class="root_url" tal:attributes="href request.fa_url()"></a>
