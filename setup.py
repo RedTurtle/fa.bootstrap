@@ -39,6 +39,8 @@ setup(name='fa.bootstrap',
       entry_points="""
       [fanstatic.libraries]
       fa_bootstrap = fa.bootstrap.fanstatic_resources:fa_bootstrap_library
+      [pyramid.scaffold]
+      pyramid_fa_bootstrap = fa.bootstrap.scaffolds:PyramidFormAlchemyBootstrapTemplate
       [paste.paster_create_template]
       pyramid_fa_bootstrap = fa.bootstrap.scaffolds:PyramidFormAlchemyBootstrapTemplate
       """
