@@ -4,8 +4,7 @@ CHANGES
 0.3.1 (unreleased)
 ==================
 
-- Nothing changed yet.
-
+- Small template fixes [amleczko]
 
 0.3 (2012-02-01)
 ================
