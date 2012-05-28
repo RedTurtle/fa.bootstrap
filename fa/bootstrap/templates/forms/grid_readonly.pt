@@ -16,7 +16,8 @@
     </tal:row>
   </tbody>
 </table>
-<script>
+<script tal:define="ts_exists exists:tablesorter"
+        tal:condition="ts_exists and tablesorter">
   $(function() {
     $('table.fa-bootstrap-grid').tablesorter();
   });
