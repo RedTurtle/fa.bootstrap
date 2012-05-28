@@ -4,7 +4,7 @@ CHANGES
 0.3.2 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Fixed vertical form handling according to bootstrap twitter [amleczko]
 
 
 0.3.1.1 (2012-05-23)
