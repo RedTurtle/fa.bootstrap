@@ -6,36 +6,40 @@
   </p>
 </div>
 
-<tal:field tal:repeat="field fieldset.render_fields.itervalues()">
-  <fieldset tal:attributes="class field.errors and 'control-group error' or 'control-group'">
-    <tal:req tal:condition="field.requires_label">
-        <label tal:replace="structure field.label_tag()"></label>
-    </tal:req>
 
-    <div class="controls">
-        <div tal:condition="not isinstance(field.type, fatypes.Boolean)"
-            tal:replace="structure field.render()"></div>
-         <div class="input-prepend"
-             tal:condition="isinstance(field.type, fatypes.Boolean)">
-             <label class="add-on active"> 
-                 <div tal:replace="structure field.render()" />
-            </label>
-            <input class="mini" disabled="" id=""  name="" size="16"  type="text" value="True">
-        </div>
+<fieldset>
 
-        <tal:error tal:condition="field.errors">
-          <span class="help-inline" tal:repeat="error field.errors" tal:content="error" />
-        </tal:error>
-        <span class="help-inline"
-             tal:content="field.metadata['instructions']"
-             tal:condition="'instructions' in field.metadata">
-         </span>
-      </div>
+  <tal:field tal:repeat="field fieldset.render_fields.itervalues()">
 
-  </fieldset>
-  <script tal:condition="not field.is_readonly() and (fieldset.focus == field or fieldset.focus is True) and not focus_rendered">
-    <tal:define tal:define="global focus_rendered True" />
-    jQuery(document).ready(function(){jQuery("[name='${field.renderer.name}']").focus();});
-  </script>
-</tal:field>
+        <div tal:attributes="class field.errors and 'control-group error' or 'control-group'">
+
+            <tal:req tal:condition="field.requires_label">
+                <label tal:replace="structure field.label_tag()"></label>
+            </tal:req>
+
+            <div class="controls">
+
+                <div tal:condition="not isinstance(field.type, fatypes.Boolean)" tal:replace="structure field.render()"></div>
+                <div class="input-prepend" tal:condition="isinstance(field.type, fatypes.Boolean)">
+                    <label class="add-on active"> 
+                        <div tal:replace="structure field.render()" />
+                    </label>
+                    <input class="mini" disabled="" id=""  name="" size="16"  type="text" value="True">
+                </div>
+
+                <tal:error tal:condition="field.errors">
+                  <span class="help-inline" tal:repeat="error field.errors" tal:content="error" />
+                </tal:error>
+                <p class="help-block"
+                    tal:content="field.metadata['instructions']"
+                    tal:condition="'instructions' in field.metadata">
+                </p>
+
+              </div>
+
+          </div>
+
+  </tal:field>
+</fieldset>
+
 </tal:define>
