@@ -1,9 +1,4 @@
-<script>
-  $(function() {
-        $("table.table-bordered").tablesorter();
-  });
-</script>
-<table class="table table-bordered">
+<table class="table table-bordered fa-bootstrap-grid">
   <thead>
     <tr>
       <th tal:repeat="field collection.render_fields.itervalues()"
@@ -21,4 +16,9 @@
     </tal:row>
   </tbody>
 </table>
-
+<script tal:define="ts_exists exists:tablesorter"
+        tal:condition="ts_exists and tablesorter">
+  $(function() {
+    $('table.fa-bootstrap-grid').tablesorter();
+  });
+</script>

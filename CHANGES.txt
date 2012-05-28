@@ -4,6 +4,7 @@ CHANGES
 0.3.2 (unreleased)
 ==================
 
+- Grid sorting is now explicitly done with .render(.., tablesorter=True) [mmariani]
 - Fixed vertical form handling according to bootstrap twitter [amleczko]
 
 
