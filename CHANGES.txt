@@ -1,7 +1,7 @@
 CHANGES
 *******
 
-0.3.2 (unreleased)
+0.3.2 (2012-05-28)
 ==================
 
 - Grid sorting is now explicitly done with .render(.., tablesorter=True) [mmariani]
