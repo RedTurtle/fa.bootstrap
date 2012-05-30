@@ -8,7 +8,12 @@ from webhelpers.html import literal
 class UIButton(actions.UIButton):
     """Overwrite default pyramid_formalchemy action to support bootstrap style."""
 
-    body = '''<a class="${_class}" tal:attributes="%(attributes)s">${content}</a>'''
+    body = '''<a class="${_class}" tal:attributes="%(attributes)s"><i tal:condition="action.icon" class="${action.icon}"></i> ${content}</a>'''
+
+    @property
+    def icon(self):
+        return self.rcontext.get('icon', None)
+
 
 
 class TabAction(actions.Action):
@@ -71,6 +76,7 @@ new = UIButton(
         content=_('New ${model_label}'),
         permission='new',
         _class='btn btn-primary',
+        icon='icon-white icon-plus',
         attrs=dict(href="request.fa_url(request.model_name, 'new')"),
         )
 
@@ -80,6 +86,7 @@ save = UIButton(
         content=_('Save'),
         permission='edit',
         _class='btn btn-success',
+        icon='icon-white icon-ok',
         attrs=dict(onclick="jQuery(this).parents('form').submit();"),
         )
 
@@ -88,6 +95,7 @@ save_and_add_another = UIButton(
         content=_('Save and add another'),
         permission='edit',
         _class='btn btn-success',
+        icon='icon-white icon-plus',
         attrs=dict(onclick=("var f = jQuery(this).parents('form');"
                             "jQuery('#next', f).val(window.location.href);"
                             "f.submit();")),
@@ -98,6 +106,7 @@ edit = UIButton(
         content=_('Edit'),
         permission='edit',
         _class='btn btn-info',
+        icon='icon-white icon-edit',
         attrs=dict(href="request.fa_url(request.model_name, request.model_id, 'edit')"),
         )
 
@@ -113,6 +122,7 @@ delete = UIButton(
         content=_('Delete'),
         permission='delete',
         _class='btn btn-danger',
+        icon='icon-white icon-trash',
         attrs=dict(onclick=("var f = jQuery(this).parents('form');"
                       "f.attr('action', window.location.href.replace('/edit', '/delete'));"
                       "f.submit();")),
@@ -123,6 +133,7 @@ cancel = UIButton(
         content=_('Cancel'),
         permission='view',
         _class='btn',
+        icon='icon-remove',
         attrs=dict(href="request.fa_url(request.model_name)"),
         )
 
