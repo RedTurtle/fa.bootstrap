@@ -14,7 +14,7 @@
         <div tal:attributes="class field.errors and 'control-group error' or 'control-group'">
 
             <tal:req tal:condition="field.requires_label">
-                <label tal:replace="structure field.label_tag()"></label>
+                <label tal:replace="structure field.label_tag(class_='control-label')"></label>
             </tal:req>
 
             <div class="controls">
