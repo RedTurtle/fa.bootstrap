@@ -4,7 +4,7 @@ CHANGES
 0.3.4 (unreleased)
 ==================
 
-- Nothing changed yet.
+- added some button icons [mmariani]
 
 
 0.3.3 (2012-06-04)
