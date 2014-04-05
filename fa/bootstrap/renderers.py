@@ -21,9 +21,9 @@ def AutocompleteRelationRenderer(filter_by='id', renderer=fields.IntegerFieldRen
 
         def render(self, **kwargs):
             fanstatic_resources.autocomplete.need()
-            filter_by = self.jq_options.get('filter_by')
+            filter_value = self.jq_options.get('filter_by')
             if self.raw_value:
-                label = getattr(self.raw_value, filter_by, u'Not selected')
+                label = getattr(self.raw_value, filter_value, u'Not selected')
             else:
                 label = u''
 
@@ -46,13 +46,15 @@ def AutocompleteRelationRenderer(filter_by='id', renderer=fields.IntegerFieldRen
 
 
 @renderers.alias(AutocompleteRelationRenderer)
-def autocomplete_relation(): pass
+def autocomplete_relation():
+    pass
 
 
 class BootstrapFieldMixin(object):
     """
         Mixin to add `class="form-control"` to renderers
     """
+
     def render(self, **kwargs):
         if 'class' in kwargs:
             kwargs['class'] += ' form-control'

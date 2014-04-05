@@ -26,10 +26,10 @@ class UIButton(actions.UIButton):
 
 class TabAction(actions.Action):
     """New action type - comaptible with boostrap style."""
-    body = u"<li tal:attributes=\"class action.isActive(request) and 'active' or ''\">" \
+    body = u"<li tal:attributes=\"class action.is_active(request) and 'active' or ''\">" \
            u'<a tal:attributes="%(attributes)s">${content}</a></li>'
 
-    def isActive(self, request):
+    def is_active(self, request):
         for _id in self.rcontext.get('children', ()):
             if _id in request.matchdict.get('traverse'):
                 return True
@@ -37,10 +37,10 @@ class TabAction(actions.Action):
 
 
 class BreadcrumbAction(TabAction):
-    body = u'''<li tal:attributes="class action.isActive(request) and \'active\' or \'\'">
-                    <a tal:condition="not action.isActive(request)" tal:attributes="%(attributes)s">${content}</a>
-                    <span tal:condition="action.isActive(request)" tal:omit-tag="">${content}</span>
-                    <span tal:condition="not action.isActive(request)" class="divider">/</span>
+    body = u'''<li tal:attributes="class action.is_active(request) and \'active\' or \'\'">
+                    <a tal:condition="not action.is_active(request)" tal:attributes="%(attributes)s">${content}</a>
+                    <span tal:condition="action.is_active(request)" tal:omit-tag="">${content}</span>
+                    <span tal:condition="not action.is_active(request)" class="divider">/</span>
                </li>'''
 
 

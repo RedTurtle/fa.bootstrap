@@ -1,24 +1,25 @@
 <table class="table table-bordered fa-bootstrap-grid">
   <thead>
-    <tr>
-      <th tal:repeat="field collection.render_fields.itervalues()"
-          tal:content="field.label()" />
-    </tr>
+  <tr>
+    <th tal:repeat="field collection.render_fields.itervalues()"
+			tal:content="field.label()" />
+  </tr>
   </thead>
   <tbody>
-    <tal:row tal:repeat="row collection.rows">
+  <tal:row tal:repeat="row collection.rows">
     <tr tal:define="dummy collection._set_active(row);">
-       <td tal:repeat="field collection.render_fields.itervalues()">
-         <a tal:condition="repeat['field'].number == 1" href="${request.fa_url(request.model_name, row.id)}" tal:content="structure field.render_readonly()" />
-         <span tal:condition="repeat['field'].number <> 1" tal:content="structure field.render_readonly()" />
-       </td>
-     </tr>
-    </tal:row>
+      <td tal:repeat="field collection.render_fields.itervalues()">
+        <a tal:condition="repeat['field'].number == 1"
+            href="${request.fa_url(request.model_name, row.id)}" tal:content="structure field.render_readonly()" />
+        <span tal:condition="repeat['field'].number <> 1" tal:content="structure field.render_readonly()" />
+      </td>
+    </tr>
+  </tal:row>
   </tbody>
 </table>
 <script tal:define="ts_exists exists:tablesorter"
-        tal:condition="ts_exists and tablesorter">
-  $(function() {
+		tal:condition="ts_exists and tablesorter">
+  $(function () {
     $('table.fa-bootstrap-grid').tablesorter();
   });
 </script>
