@@ -1,11 +1,10 @@
-from formalchemy import forms
 from formalchemy import tables
 from pyramid.renderers import get_renderer
 from fa.bootstrap.views import ModelView as Base
-from fa.bootstrap import fanstatic_resources
+from fa.bootstrap import fanstatic_resources, BootstrapFieldSet
 
 
-class FieldSet(forms.FieldSet):
+class FieldSet(BootstrapFieldSet):
     pass
 
 

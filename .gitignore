@@ -5,3 +5,5 @@ eggs
 include
 lib
 dist
+*.pyc
+fa.bootstrap.egg-info
