@@ -9,6 +9,7 @@ def before_object_listing_render(context, event):
     fanstatic_resources.listing.need()
 
 def includeme(config):
+    config.add_translation_dirs('fa.bootstrap:locale/')
     config.include('fa.jquery')
     config.override_asset(
         to_override="fa.jquery:templates/admin/",
