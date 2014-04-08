@@ -35,7 +35,13 @@ setup(name='fa.bootstrap',
           'js.jquery_tablesorter',
           'js.bootstrap>=1.4',
           'WebOb',
-          ],
+          'Babel',
+          'lingua',
+      ],
+      message_extractors={'.': [
+          ('**.py', 'lingua_python', None),
+          ('**.pt', 'lingua_xml', None),
+      ]},
       entry_points="""
       [fanstatic.libraries]
       fa_bootstrap = fa.bootstrap.fanstatic_resources:fa_bootstrap_library

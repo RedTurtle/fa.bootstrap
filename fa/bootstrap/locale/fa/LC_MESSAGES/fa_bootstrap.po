@@ -1,0 +1,48 @@
+# Persian translations for fa.bootstrap.
+# Copyright (C) 2014 ORGANIZATION
+# This file is distributed under the same license as the fa.bootstrap
+# project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fa.bootstrap 0.3.4.dev0\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2014-04-06 14:57+0430\n"
+"PO-Revision-Date: 2014-04-06 17:07+0430\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: fa <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
+
+#: fa/bootstrap/actions.py:76
+msgid "New ${model_label}"
+msgstr "${model_label} جدید"
+
+#: fa/bootstrap/actions.py:86
+msgid "Save"
+msgstr "ذخیره"
+
+#: fa/bootstrap/actions.py:95
+msgid "Save and add another"
+msgstr "ذخیره و ایجاد بعدی"
+
+#: fa/bootstrap/actions.py:106
+msgid "Edit"
+msgstr "ویرایش"
+
+#: fa/bootstrap/actions.py:115
+msgid "Back"
+msgstr "بازگشت"
+
+#: fa/bootstrap/actions.py:122
+msgid "Delete"
+msgstr "حذف"
+
+#: fa/bootstrap/actions.py:133
+msgid "Cancel"
+msgstr "انصراف"
+

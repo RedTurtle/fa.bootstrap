@@ -26,7 +26,6 @@
 				  tal:content="field.metadata['instructions']"
 				  tal:condition="'instructions' in field.metadata">
           </p>
-
         </div>
 
       </div>
