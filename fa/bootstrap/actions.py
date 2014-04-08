@@ -1,8 +1,10 @@
-from pyramid_formalchemy.i18n import _
+from pyramid_formalchemy.i18n import TranslationStringFactory
 from pyramid_formalchemy import actions
 from pyramid_formalchemy.actions import Actions
 from pyramid_formalchemy.actions import action; action
 from webhelpers.html import literal
+
+_ = TranslationStringFactory('fa_bootstrap')
 
 
 class UIButton(actions.UIButton):

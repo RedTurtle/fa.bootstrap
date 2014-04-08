@@ -1,7 +1,10 @@
 .installed.cfg
 bin
+build
 develop-eggs
 eggs
 include
 lib
 dist
+*.pyc
+fa.bootstrap.egg-info

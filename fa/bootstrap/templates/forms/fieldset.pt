@@ -24,7 +24,7 @@
                     <label class="add-on active"> 
                         <div tal:replace="structure field.render()" />
                     </label>
-                    <input class="mini" disabled="" id=""  name="" size="16"  type="text" value="True">
+                    <input class="mini" disabled="" id=""  name="" size="16"  type="text" value="True"/>
                 </div>
 
                 <tal:error tal:condition="field.errors">
