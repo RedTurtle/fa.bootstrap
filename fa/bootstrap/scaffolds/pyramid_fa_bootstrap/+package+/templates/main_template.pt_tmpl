@@ -1,59 +1,61 @@
 <metal:main metal:define-macro="master">
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xml:lang="en" xmlns:tal="http://xml.zope.org/namespaces/tal">
-<head>
-  <title>fa.bootstrap</title>
-  <meta charset="utf-8"/>
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
-  <script type="text/javascript" metal:define-slot="javascript"></script>
-  <link metal:define-slot="css"></link>
-  <style>body {padding-top:60px}</style>
-</head>
-<body>
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>fa.bootstrap</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <script type="text/javascript" metal:define-slot="javascript"></script>
+    <link metal:define-slot="css" />
+    <style>body {
+      padding-top: 60px
+    }</style>
+  </head>
+  <body>
 
-  <div class="topbar">
-      <div class="topbar-inner">
-        <div class="container-fluid" data-dropdown="dropdown">
-          <a class="brand" href="${request.application_url}">The {{package}} project</a>
-          <ul class="nav">
-            <li><a href="${request.application_url}">Start</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle">First section</a>
-                <ul class="dropdown-menu">
-                    <li><a href="${request.application_url}/section1">section 1</a></li>
-                    <li><a href="${request.application_url}/section2">section 2</a></li>
-                    <li><a href="${request.application_url}/section3">section 3</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle">administration</a>
-                <ul class="dropdown-menu">
-                    <li><a href="${request.application_url}/admin">management</a></li>
-                </ul>
-            </li>
+  <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="${request.application_url}">The {{package}} project</a>
+      <ul class="nav navbar-nav">
+        <li><a href="${request.application_url}">Start</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">First section <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="${request.application_url}/section1">section 1</a></li>
+            <li><a href="${request.application_url}/section2">section 2</a></li>
+            <li><a href="${request.application_url}/section3">section 3</a></li>
           </ul>
-        </div>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">administration <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="${request.application_url}/admin">management</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2 well page-header">
+        <metal:main metal:define-slot="sidebar">
+          <h5>Sidebar</h5>
+          <ul>
+            <li><a href="#">Link</a></li>
+          </ul>
+        </metal:main>
+      </div>
+      <div class="col-md-10">
+        <metal:main metal:define-slot="body"/>
+        <hr>
+        <footer>
+          <p>&copy; Your company 2011</p>
+        </footer>
       </div>
     </div>
-    <div class="container-fluid">
-      <div class="sidebar">
-        <div class="well">
-          <metal:main metal:define-slot="sidebar">
-            <h5>Sidebar</h5>
-            <ul>
-              <li><a href="#">Link</a></li>
-            </ul>
-          </metal:main>
-        </div>
-      </div>
-      <div class="content">
-          <metal:main metal:define-slot="body"/>
-          <footer>
-             <p>&copy; Your company 2011</p>
-          </footer>
-      </div>
-    </div> <!-- /container -->
-</body>
-</html>
+  </div>
+  <!-- /container -->
+  </body>
+  </html>
 </metal:main>

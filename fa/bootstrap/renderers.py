@@ -17,13 +17,13 @@ def AutocompleteRelationRenderer(filter_by='id', renderer=fields.IntegerFieldRen
 
         def update_options(self, options, kwargs):
             kwargs['source'] = self.request.fa_url(
-                    self.field.relation_type().__name__, 'autocomplete')
+                self.field.relation_type().__name__, 'autocomplete')
 
         def render(self, **kwargs):
             fanstatic_resources.autocomplete.need()
-            filter_by = self.jq_options.get('filter_by')
+            filter_value = self.jq_options.get('filter_by')
             if self.raw_value:
-                label = getattr(self.raw_value, filter_by, u'Not selected')
+                label = getattr(self.raw_value, filter_value, u'Not selected')
             else:
                 label = u''
 
@@ -36,7 +36,7 @@ def AutocompleteRelationRenderer(filter_by='id', renderer=fields.IntegerFieldRen
 
         def _serialized_value(self):
             try:
-                return super(Renderer,self)._serialized_value()
+                return super(Renderer, self)._serialized_value()
             except FieldNotFoundError:
                 return None
 
@@ -44,5 +44,43 @@ def AutocompleteRelationRenderer(filter_by='id', renderer=fields.IntegerFieldRen
 
     return renderers.jQueryFieldRenderer('bootstrap_autocomplete_relation', renderer=Renderer, **jq_options)
 
+
 @renderers.alias(AutocompleteRelationRenderer)
-def autocomplete_relation(): pass
+def autocomplete_relation():
+    pass
+
+
+class BootstrapFieldMixin(object):
+    """
+        Mixin to add `class="form-control"` to renderers
+    """
+
+    def render(self, **kwargs):
+        if 'class' in kwargs:
+            kwargs['class'] += ' form-control'
+        else:
+            kwargs['class'] = ' form-control'
+        return super(BootstrapFieldMixin, self).render(**kwargs)
+
+
+class BootstrapBooleanFieldRenderer(fields.CheckBoxFieldRenderer):
+    def render(self, **kwargs):
+        checkbox = super(BootstrapBooleanFieldRenderer, self).render(**kwargs)
+        return '<span class="input-group" style="width:1px"><span class="input-group-addon">%s</span>' \
+               '<span class="form-control">%s</span></span>' % (checkbox, 'True')
+
+
+class BootstrapTextFieldRenderer(BootstrapFieldMixin, fields.TextFieldRenderer):
+    pass
+
+
+class BootstrapIntegerFieldRenderer(BootstrapFieldMixin, fields.IntegerFieldRenderer):
+    pass
+
+
+class BootstrapFloatFieldRenderer(BootstrapFieldMixin, fields.FloatFieldRenderer):
+    pass
+
+
+class BootstrapIntervalFieldRenderer(BootstrapFieldMixin, fields.IntervalFieldRenderer):
+    pass

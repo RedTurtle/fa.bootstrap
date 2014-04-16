@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 from pyramid_formalchemy import events
 from fa.bootstrap import fanstatic_resources
+from fa.bootstrap.forms import BootstrapFieldSet
 
 
 #object listening rendering events
 @events.subscriber([object, events.IBeforeListingRenderEvent])
 def before_object_listing_render(context, event):
     fanstatic_resources.listing.need()
+
 
 def includeme(config):
     config.add_translation_dirs('fa.bootstrap:locale/')

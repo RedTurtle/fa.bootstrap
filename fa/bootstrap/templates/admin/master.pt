@@ -4,22 +4,22 @@
       <script type="text/javascript" metal:define-slot="javascript"></script>
     </head>
     <body metal:fill-slot="body">
-        <div class="page-header" tal:on-error="'Error'">
-            <h1 tal:condition="request.model_name">
+    <div class="page-header" tal:on-error="'Error'">
+      <h1 tal:condition="request.model_name">
                  <span tal:condition="request.model_id and hasattr(request.model_class, '__unicode__')"
-                       tal:replace="unicode(request.model_instance)"/>
+						 tal:replace="unicode(request.model_instance)"/>
                  <span tal:condition="request.model_id and not hasattr(request.model_class, '__unicode__')"
-                       tal:replace="request.model_id"/>
+						 tal:replace="request.model_id"/>
                  <span tal:condition="not request.model_id"
-                       tal:replace="unicode(request.model_class.label)"/>
-            </h1>
-        </div>
-        <div class="row-fluid">
-            <div class="span12">
-                <metal:main define-slot="main"></metal:main>
-                <a style="display:none" class="root_url" tal:attributes="href request.fa_url()"></a>
-            </div>
-        </div>
+						 tal:replace="unicode(request.model_class.label)"/>
+      </h1>
+    </div>
+    <div class="row-fluid">
+      <div class="span12">
+        <metal:main define-slot="main"></metal:main>
+        <a style="display:none" class="root_url" tal:attributes="href request.fa_url()"></a>
+      </div>
+    </div>
     </body>
     <div metal:fill-slot="sidebar">
       <metal:main define-slot="sidebar">

@@ -2,8 +2,8 @@
 from pyramid_formalchemy.views import ModelView as Base
 from fa.bootstrap import actions
 
-class ModelView(Base):
 
+class ModelView(Base):
     defaults_actions = actions.defaults_actions
 
     pager_args = dict(link_attr={'class': ''},

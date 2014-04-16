@@ -1,45 +1,36 @@
 <tal:define tal:define="focus_rendered False">
 
-<div class="alert alert-error" tal:condition="fieldset.errors.get(None, False)">
-  <p tal:repeat="error fieldset.errors.get(None)" tal:omit-tag="">
-    <span tal:content="error" />
-  </p>
-</div>
+  <div class="alert alert-danger" tal:condition="fieldset.errors.get(None, False)">
+    <p tal:repeat="error fieldset.errors.get(None)" tal:omit-tag="">
+      <span tal:content="error" />
+    </p>
+  </div>
 
 
-<fieldset>
+  <fieldset>
+    <tal:field tal:repeat="field fieldset.render_fields.itervalues()">
 
-  <tal:field tal:repeat="field fieldset.render_fields.itervalues()">
+      <div tal:attributes="class field.errors and 'form-group has-error' or 'form-group'">
 
-        <div tal:attributes="class field.errors and 'control-group error' or 'control-group'">
+        <tal:req tal:condition="field.requires_label">
+          <label tal:replace="structure field.label_tag(class_='col-sm-2 control-label')"></label>
+        </tal:req>
 
-            <tal:req tal:condition="field.requires_label">
-                <label tal:replace="structure field.label_tag(class_='control-label')"></label>
-            </tal:req>
+        <div class="col-sm-8">
+          <div tal:replace="structure field.render()"></div>
 
-            <div class="controls">
+          <tal:error tal:condition="field.errors">
+            <span class="help-block" tal:repeat="error field.errors" tal:content="error" />
+          </tal:error>
+          <p class="help-block"
+				  tal:content="field.metadata['instructions']"
+				  tal:condition="'instructions' in field.metadata">
+          </p>
+        </div>
 
-                <div tal:condition="not isinstance(field.type, fatypes.Boolean)" tal:replace="structure field.render()"></div>
-                <div class="input-prepend" tal:condition="isinstance(field.type, fatypes.Boolean)">
-                    <label class="add-on active"> 
-                        <div tal:replace="structure field.render()" />
-                    </label>
-                    <input class="mini" disabled="" id=""  name="" size="16"  type="text" value="True"/>
-                </div>
+      </div>
 
-                <tal:error tal:condition="field.errors">
-                  <span class="help-inline" tal:repeat="error field.errors" tal:content="error" />
-                </tal:error>
-                <p class="help-block"
-                    tal:content="field.metadata['instructions']"
-                    tal:condition="'instructions' in field.metadata">
-                </p>
-
-              </div>
-
-          </div>
-
-  </tal:field>
-</fieldset>
+    </tal:field>
+  </fieldset>
 
 </tal:define>

@@ -16,7 +16,8 @@ def main(global_config, **settings):
                     renderer="templates/home.pt")
 
     config.include('pyramid_formalchemy')
-    # Adding the jquery libraries
+    config.include('pyramid_chameleon')
+    # Adding the jquery/bootstrap libraries
     config.include('fa.bootstrap')
     # Adding the package specific routes
     config.include('{{package}}.routes')
