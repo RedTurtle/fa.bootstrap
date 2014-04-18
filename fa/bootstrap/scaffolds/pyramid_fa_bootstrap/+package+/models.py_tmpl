@@ -1,15 +1,48 @@
 from datetime import timedelta
+from sqlalchemy.sql.schema import ForeignKey
 
 import transaction
-from sqlalchemy.orm import scoped_session
+from formalchemy import Column as FAColumn
+from sqlalchemy.orm import scoped_session, relationship
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.exc import IntegrityError
-from sqlalchemy import Integer, Unicode, Column, Float, Interval, Boolean
+from sqlalchemy import Integer, Unicode, Column, Float, Interval, Boolean, Table
 from zope.sqlalchemy import ZopeTransactionExtension
 
 DBSession = scoped_session(sessionmaker(extension=ZopeTransactionExtension()))
 Base = declarative_base()
+
+
+class ModelGroup(Base):
+    __tablename__ = 'gropus'
+    id = Column(Integer, primary_key=True)
+    name = Column(Unicode(255), unique=True)
+
+    def __unicode__(self):
+        return self.name
+
+    def __init__(self, **kwargs):
+        for key, value in kwargs.items():
+            setattr(self, key, value)
+
+
+class ModelItem(Base):
+    __tablename__ = 'items'
+    id = Column(Integer, primary_key=True)
+    name = Column(Unicode(255), unique=True)
+
+    def __unicode__(self):
+        return self.name
+
+    def __init__(self, **kwargs):
+        for key, value in kwargs.items():
+            setattr(self, key, value)
+
+model_items_table = Table('model_items', Base.metadata,
+                          Column('item_id', Integer, ForeignKey(ModelItem.id), primary_key=True),
+                          Column('model_id', Integer, ForeignKey('models.id'), primary_key=True))
+
 
 class MyModel(Base):
     __tablename__ = 'models'
@@ -19,6 +52,11 @@ class MyModel(Base):
     float_value = Column(Float)
     boolean = Column(Boolean)
     interval = Column(Interval)
+    many_to_one_id = Column(Integer, ForeignKey(ModelGroup.id))
+    many_to_one = relationship(ModelGroup, foreign_keys=many_to_one_id)
+    many_to_one_auto_id = FAColumn(Integer, ForeignKey(ModelGroup.id), html={'width': 'auto'})
+    many_to_one_auto = relationship(ModelGroup, foreign_keys=many_to_one_auto_id)
+    many_to_many = relationship(ModelItem, secondary=model_items_table)
 
     def __init__(self, **kwargs):
         for key, value in kwargs.items():
@@ -27,8 +65,12 @@ class MyModel(Base):
 
 def populate():
     session = DBSession()
-    model = MyModel(name=u'test name', value=55, float_value=3.5, interval=timedelta(4), boolean=True)
-    session.add(model)
+    session.add(ModelGroup(name='Group1'))
+    session.add(ModelGroup(name='Group2'))
+    session.add(ModelItem(name='Item 1'))
+    session.add(ModelItem(name='Item 2'))
+    session.add(ModelItem(name='Item 3'))
+    session.add(MyModel(name=u'test name', value=55, float_value=3.5, interval=timedelta(4), boolean=True))
     session.flush()
     transaction.commit()
 

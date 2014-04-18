@@ -59,7 +59,7 @@ class BootstrapFieldMixin(object):
         if 'class' in kwargs:
             kwargs['class'] += ' form-control'
         else:
-            kwargs['class'] = ' form-control'
+            kwargs['class'] = 'form-control'
         return super(BootstrapFieldMixin, self).render(**kwargs)
 
 
@@ -84,3 +84,11 @@ class BootstrapFloatFieldRenderer(BootstrapFieldMixin, fields.FloatFieldRenderer
 
 class BootstrapIntervalFieldRenderer(BootstrapFieldMixin, fields.IntervalFieldRenderer):
     pass
+
+
+class BootstrapSelectFieldRenderer(BootstrapFieldMixin, fields.SelectFieldRenderer):
+    def render(self, **kwargs):
+        auto_width = kwargs.pop('width', None)
+        if auto_width:
+            kwargs['style'] = kwargs.get('style', '') + '; width: ' + str(auto_width)
+        return super(BootstrapSelectFieldRenderer, self).render(**kwargs)
