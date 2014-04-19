@@ -87,8 +87,29 @@ class BootstrapIntervalFieldRenderer(BootstrapFieldMixin, fields.IntervalFieldRe
 
 
 class BootstrapSelectFieldRenderer(BootstrapFieldMixin, fields.SelectFieldRenderer):
+    """
+    accepts "width" option add applies it by patching style attribute
+    """
     def render(self, **kwargs):
         auto_width = kwargs.pop('width', None)
         if auto_width:
             kwargs['style'] = kwargs.get('style', '') + '; width: ' + str(auto_width)
         return super(BootstrapSelectFieldRenderer, self).render(**kwargs)
+
+
+class BootstrapSelectPickerFieldRenderer(BootstrapSelectFieldRenderer):
+    """
+    Options can be configured via data-* attributes
+    """
+    def render(self, **kwargs):
+        fanstatic_resources.select_picker.need()
+        kwargs['class'] = kwargs.get('class', '') + ' selectpicker'
+        # kwargs['data-live-search'] = 'true'
+        return fields.SelectFieldRenderer.render(self, **kwargs)
+
+
+class DualListBoxFieldRenderer(BootstrapSelectFieldRenderer):
+    def render(self, **kwargs):
+        fanstatic_resources.duallistbox.need()
+        kwargs['class'] = kwargs.get('class', '') + ' duallistbox'
+        return fields.SelectFieldRenderer.render(self, **kwargs)
