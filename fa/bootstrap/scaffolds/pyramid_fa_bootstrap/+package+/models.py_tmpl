@@ -89,9 +89,8 @@ def populate():
     session = DBSession()
     session.add(ModelGroup(name='Group1'))
     session.add(ModelGroup(name='Group2'))
-    session.add(ModelItem(name='Item 1'))
-    session.add(ModelItem(name='Item 2'))
-    session.add(ModelItem(name='Item 3'))
+    for i in range(500):
+        session.add(ModelItem(name='Item ' + str(i)))
     session.add(MyModel(name=u'test name', value=55, float_value=3.5, interval=timedelta(4), boolean=True))
     session.flush()
     transaction.commit()
