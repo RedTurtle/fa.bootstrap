@@ -1,9 +1,9 @@
 <html metal:use-macro="main.macros['master']">
 <body>
-<div metal:fill-slot="main">
+<div metal:fill-slot="main" xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="fa_bootstrap">
   <form method="POST" enctype="multipart/form-data"
         class="form-horizontal"  tal:attributes="action request.fa_url(request.model_name)">
-    <legend>Add new item</legend>
+    <legend i18n:translate="">Add new item</legend>
     <div tal:replace="structure fs.render()" />
     <input type="hidden" id="next" name="next" value=""/>
     <div class="form-group">
