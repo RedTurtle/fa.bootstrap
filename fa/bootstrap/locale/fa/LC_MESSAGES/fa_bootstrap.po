@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fa.bootstrap 0.3.4.dev0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-04-06 14:57+0430\n"
+"POT-Creation-Date: 2014-04-22 18:34+0430\n"
 "PO-Revision-Date: 2014-04-06 17:07+0430\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: fa <LL@li.org>\n"
@@ -18,31 +18,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: fa/bootstrap/actions.py:76
+#: fa/bootstrap/actions.py:87
 msgid "New ${model_label}"
 msgstr "${model_label} جدید"
 
-#: fa/bootstrap/actions.py:86
+#: fa/bootstrap/actions.py:97
 msgid "Save"
 msgstr "ذخیره"
 
-#: fa/bootstrap/actions.py:95
+#: fa/bootstrap/actions.py:105
 msgid "Save and add another"
 msgstr "ذخیره و ایجاد بعدی"
 
-#: fa/bootstrap/actions.py:106
+#: fa/bootstrap/actions.py:116
 msgid "Edit"
 msgstr "ویرایش"
 
-#: fa/bootstrap/actions.py:115
+#: fa/bootstrap/actions.py:125
 msgid "Back"
 msgstr "بازگشت"
 
-#: fa/bootstrap/actions.py:122
+#: fa/bootstrap/actions.py:132
 msgid "Delete"
 msgstr "حذف"
 
-#: fa/bootstrap/actions.py:133
+#: fa/bootstrap/actions.py:143
 msgid "Cancel"
 msgstr "انصراف"
+
+#: fa/bootstrap/templates/admin/new.pt:6
+msgid "Add new item"
+msgstr "اضافه کردن مورد جدید"
 

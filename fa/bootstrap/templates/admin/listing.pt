@@ -3,11 +3,9 @@
 <metal:main fill-slot="main">
   <span tal:replace="structure fs.render(request=request)"/>
 
-  <div class="pagination">
-    <ul>
-      <span tal:replace="structure pager" />
-    </ul>
-  </div>
+  <ul class="pagination">
+    <span tal:replace="structure pager" />
+  </ul>
   <p class="fa_field" tal:content="structure actions.buttons(request)"></p>
 </metal:main>
 </body>

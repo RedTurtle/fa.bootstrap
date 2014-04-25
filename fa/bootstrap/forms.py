@@ -13,4 +13,7 @@ class BootstrapFieldSet(FieldSet):
         fatypes.Numeric: renderers.BootstrapFloatFieldRenderer,
         fatypes.Interval: renderers.BootstrapIntervalFieldRenderer,
         fatypes.Boolean: renderers.BootstrapBooleanFieldRenderer,
+        fatypes.Set: renderers.BootstrapSelectFieldRenderer,
+        fatypes.List: renderers.BootstrapSelectFieldRenderer,
+        'dropdown': renderers.BootstrapSelectFieldRenderer,
     })
